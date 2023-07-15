@@ -12,11 +12,16 @@ function App() {
   const [history, setHistory] = useState(New_Game);
   const [currentMove, setCurrentMove] = useState(0);
   const gamingBoard = history[currentMove];
-  const [squares, setSquares] = useState(Array(9).fill(null));
   
   const [isXNext, setIsNext] = useState(false);
+  
+    
+  const noMovesLeft = gamingBoard.squares.every(squareValue => squareValue !== null);
 
-    const {winner, winningSquares} = calculateWinner(gamingBoard.squares);
+  const {winner, winningSquares} = calculateWinner(gamingBoard.squares);
+
+
+  const isTied = !winner && noMovesLeft;
 
     const handleSquareClick = clickedPosition => {
 
@@ -56,10 +61,10 @@ function App() {
 
   return <div className="app">
     <h1>TIC <span className='text-green'>TAC</span> TOE</h1>
-    <StatusMessage winner = {winner} gamingBoard = {gamingBoard} />
+    <StatusMessage winner = {winner} gamingBoard = {gamingBoard} noMovesLeft={noMovesLeft}/>
     <Board squares={gamingBoard.squares} handleSquareClick = { handleSquareClick} winningSquares={winningSquares} />
 
-    <button type='button' onClick={onNewGameStart} className={`btn-reset ${winner ? 'active' : ''}`}>Start New Game</button>
+    <button type='button' onClick={onNewGameStart} className={`btn-reset ${winner || isTied ? 'active' : ''}`}>Start New Game</button>
 
     <h2 style={
       {
@@ -70,6 +75,7 @@ function App() {
 
     <div className='bg-balls'></div>
   </div>;
+
 }
 
 export default App
