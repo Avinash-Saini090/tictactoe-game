@@ -1,11 +1,11 @@
-$green: #12e177;
-$orange: #ffc72a;
-$blue: #4c43d4;
+$green: hsl(148, 100%, 40%);
+$red: hsl(16, 100%, 55%);
+$blue: #0ceeea;
 
 body {
   font-family: 'Roboto', sans-serif;
   background-color: $blue;
-  color: #fff;
+  color: darkblue;
   padding: 0;
   margin: 0;
 }
@@ -31,7 +31,7 @@ button {
 }
 
 .text-orange {
-  color: $orange;
+  color: $red;
 }
 
 .history-wrapper {
@@ -57,7 +57,7 @@ button {
       }
 
       .btn-move {
-    	  color: #fff;
+    	  color: darkgreen;
         &.active {
           font-weight: bold;
           color: $green;
@@ -78,15 +78,15 @@ button {
 
 .btn-reset {
   font-size: 0.8rem;
-  color: #fff;
+  color: white;
   border-radius: 15px;
   padding: 12px 18px;
   margin-top: 25px;
   transition: all 0.2s;
   background-color: $blue;
-  box-shadow: 0px 0px 0px 1px $orange;
+  box-shadow: 0px 0px 0px 1px $red;
   &.active {
-    background-color: $orange;
+    background-color: $red;
     box-shadow: none;
   }
 }
@@ -95,14 +95,14 @@ button {
   .board-row {
     display: flex;
     flex-direction: row;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2.5px solid black;
     &:last-child {
       border-bottom: none;
     }
     .square {
       width: 80px;
       height: 80px;
-      border-right: 2px solid #fff;
+      border-right: 2.5px solid black;
       font-size: 2.5rem;
       padding: 0;
       overflow: hidden;
@@ -147,7 +147,7 @@ button {
   }
 
   &:before {
-    background-color: $orange;
+    background-color: $red;
     right: -75px;
     bottom: -75px;
     @media screen and (min-width: 476px) {
