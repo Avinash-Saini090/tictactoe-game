@@ -7,12 +7,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && surge dist tictactoe_byavinashsaini.surge.sh/"
   },
   "dependencies": {
     "eslint-config-prettier": "^8.8.0",
+    "global": "^4.4.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "surge": "^0.23.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
